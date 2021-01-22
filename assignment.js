@@ -4,7 +4,7 @@
 
 function kilometerToMeter(km) {
     if (km < 0) {
-        console.log(km,"km can not be converted to meter.");
+        console.log(km, "km can not be converted to meter.");
     }
     else {
         var result = km * 1000;       //1km = 1000m
@@ -16,21 +16,48 @@ console.log(fourKm);
 
 // Solution of the second problem:
 
-function budgetCalculator(amountOfWatches, amountOfPhones, amountOfLaptops){
-    if(amountOfWatches < 0 || amountOfPhones < 0 || amountOfLaptops < 0){
+function budgetCalculator(amountOfWatches, amountOfPhones, amountOfLaptops) {
+    var totalBudget = 0;
+    if (amountOfWatches < 0 || amountOfPhones < 0 || amountOfLaptops < 0) {
         console.log("err: Please enter valid amount of products.");
     }
-    else{
+    else {
         var paymentForWatches = amountOfWatches * 50;
         var paymentForPhones = amountOfPhones * 100;
         var paymentForLaptops = amountOfLaptops * 500;
 
-        var totalBudget = paymentForWatches + paymentForPhones + paymentForLaptops;
-        return totalBudget; 
+        totalBudget = paymentForWatches + paymentForPhones + paymentForLaptops;
+        return totalBudget;
     }
 }
 
-var myBudget = budgetCalculator(2, 3, 1);
+var myBudget = budgetCalculator(2, -3, 1);
 console.log(myBudget);
 
 
+// Solution of third problem:
+
+function hotelCost(day) {
+    var totalCost = 0;
+    if (day <= 10) {
+        totalCost = day * 100;
+    }
+    else if (day <= 20) {
+        var firstTenDay = 1000;
+        var remaining = day - 10;
+        var costForRemainingDays = remaining * 80;
+        totalCost = firstTenDay + costForRemainingDays;
+    }
+    else if (day > 20) {
+        firstTenDay = 1000;
+        var nextTenDay = 10 * 80;
+        remaining = day - 20;
+        costForRemainingDays = remaining * 50;
+        totalCost = firstTenDay + nextTenDay + costForRemainingDays;
+    }
+
+    return totalCost;
+}
+
+var myVacationDays = hotelCost(12);
+console.log(myVacationDays);
