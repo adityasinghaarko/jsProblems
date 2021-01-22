@@ -31,7 +31,7 @@ function budgetCalculator(amountOfWatches, amountOfPhones, amountOfLaptops) {
     }
 }
 
-var myBudget = budgetCalculator(2, -3, 1);
+var myBudget = budgetCalculator(2, 3, 1);
 console.log(myBudget);
 
 
@@ -39,7 +39,10 @@ console.log(myBudget);
 
 function hotelCost(day) {
     var totalCost = 0;
-    if (day <= 10) {
+    if (day <= 0) {
+        console.log("err: Please enter valid timeline(day) to execute your cost.")
+    }
+    else if (day <= 10) {
         totalCost = day * 100;
     }
     else if (day <= 20) {
@@ -59,5 +62,26 @@ function hotelCost(day) {
     return totalCost;
 }
 
-var myVacationDays = hotelCost(12);
+var myVacationDays = hotelCost(21);
 console.log(myVacationDays);
+
+
+//Solution for fourth problem:
+
+function megaFriend(names) {
+    var highestLength = 0;
+    var maxLengthNamedFriend = '';
+    for (var i = 0; i < names.length; i++) {
+        var element = names[i];
+        var elementLength = element.length;
+        if (elementLength > highestLength) {
+            maxLengthNamedFriend = element;
+            highestLength = elementLength;
+        }
+    }
+    return maxLengthNamedFriend;
+}
+
+var myFriends = ['HTML', 'CSS', 'Javascript', 'Python', 'C'];
+var checkMegaFriend = megaFriend(myFriends);
+console.log(checkMegaFriend);
